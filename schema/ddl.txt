@@ -1,0 +1,6 @@
+CREATE INDEX ON :Person(name)
+CREATE CONSTRAINT ON (person:Person) ASSERT person.email IS UNIQUE
+CREATE CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE
+
+CREATE CONSTRAINT ON (team:Team) ASSERT person.name IS UNIQUE
+CREATE CONSTRAINT ON (team:Team) ASSERT team.id IS UNIQUE
