@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PersonCardComponent } from './person-card/person-card.component';
 import { ROUTES } from './app.routing';
+import { PeopleService } from './services/people.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,10 @@ import { ROUTES } from './app.routing';
   ],
   imports: [
     BrowserModule,
-    ROUTES
+    ROUTES,
+    FormsModule
   ],
-  providers: [],
+  providers: [PeopleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
