@@ -21,3 +21,4 @@ driver.onError = function (error) {
 // driver.close();
 
 module.exports.neo4jDriver = driver;
+
