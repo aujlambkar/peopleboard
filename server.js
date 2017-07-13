@@ -1,3 +1,5 @@
+const dbutil = require('./server/dbutil/driver.js');
+
 // Get dependencies
 const express = require('express');
 const path = require('path');
@@ -39,3 +41,20 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 server.listen(port, () => console.log(`API running on localhost:${port}`));
+
+process.on('exit', function () {
+  dbutil.neo4jDriver.close();
+  console.log('DB Driver connection closed');
+});
+
+process.on('SIGINT', function () {
+  dbutil.neo4jDriver.close();
+  console.log('DB Driver connection interrupted');
+  process.exit();
+});
+
+process.on('SIGTERM', function () {
+  dbutil.neo4jDriver.close();
+  console.log('DB Driver connection terminated');
+  process.exit();
+});
