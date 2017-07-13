@@ -2,4 +2,5 @@
   person-card works!
 </p>
  <input type="text" [(ngModel)]="name" class="form-control" placeholder="Enter Person name ..."><br>
- <span>{{ email }}</span>
+ <button class="form-control" (click)="findPersonByName()">Search</button>
+ <div><label>Email: </label>{{ email }}</div>

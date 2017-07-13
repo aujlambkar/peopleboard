@@ -1,7 +1,6 @@
 const neo4j = require('neo4j-driver').v1;
 const environment = require('../environments/environment.js').environment;
 
-console.log('environment: ' + JSON.stringify(environment));
 var driver = neo4j.driver(environment.NEO4J_URL, neo4j.auth.basic(environment.NEO4J_USER, environment.NEO4J_PASS));
 
 // Register a callback to know if driver creation was successful:

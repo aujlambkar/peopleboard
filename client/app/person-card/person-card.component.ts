@@ -6,6 +6,7 @@ import { PeopleService } from '../services/people.service';
   templateUrl: './person-card.component.html',
   styleUrls: ['./person-card.component.css']
 })
+
 export class PersonCardComponent implements OnInit {
   name: String = "";
   email: String = "";
@@ -16,7 +17,8 @@ export class PersonCardComponent implements OnInit {
   }
 
   findPersonByName() {
-    this._peopleService.findPersonByName(this.name).subscribe(result => this.email = result.records._fields[0].properties.email,
+    this._peopleService.findPersonByName(this.name).subscribe(
+      result => this.email = result.records[0]._fields[0].properties.email,
       error => {
         console.log(error);
       }
